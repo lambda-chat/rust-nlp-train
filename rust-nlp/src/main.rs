@@ -8,9 +8,10 @@ use sudachi::{
 fn main() {
     let config_file = Some(PathBuf::from("../sudachi/resources/sudachi.json"));
     let dictionary_path = Some(PathBuf::from("../sudachi/resources/system.dic"));
-    let config = Config::new(config_file, None, dictionary_path)
-        .expect("Failed to read config file for test");
-    let dict = Arc::new(JapaneseDictionary::from_cfg(&config).expect("failed to make dictionary"));
+    let config =
+        Config::new(config_file, None, dictionary_path).expect("Failed to read config file(s)");
+    let dict =
+        Arc::new(JapaneseDictionary::from_cfg(&config).expect("Failed to make a dictionary"));
     let morphs = {
         let mut tokenizer = StatefulTokenizer::create(dict.clone(), false, Mode::A);
         tokenizer.reset().push_str("外国人参政権".into());
