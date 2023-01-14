@@ -1,0 +1,4 @@
+[submodule "sudachi"]
+	path = sudachi
+	url = https://github.com/WorksApplications/sudachi.rs.git
+	ignore = dirty
